@@ -19,6 +19,7 @@ window.addEventListener('load', function (e) {
       this.maxSpeed = 3;
       this.enemies = [];
       this.particles = [];
+      this.maxParticle = 50;
       this.enemyTimer = 0;
       this.enemyInterval = 1000;
       this.score = 0;
@@ -59,6 +60,9 @@ window.addEventListener('load', function (e) {
           this.particles.splice(this.particles.indexOf(particle), 1);
         }
       });
+      if (this.particles.length > this.maxParticle) {
+        this.particles = this.particles.slice(0, 50);
+      }
     }
     draw(context) {
       this.background.draw(context);
